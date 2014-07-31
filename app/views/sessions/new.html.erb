@@ -1,0 +1,22 @@
+<% if flash[:notice]  %>
+  <div class="error-messages alert alert-error">
+    <h4>Please Correct the following errors:</h4>
+    <ul>
+    <% flash.each do |name, msg| %>
+      <%= content_tag :li, msg, :id => "flash_#{name}" %>
+    <% end %>
+  </ul>
+  </div>
+<% end  %>
+
+<div class="row">
+  <div class="small-6 small-centered columns">
+    <%= form_tag sessions_path, class: "form-signin" do %>
+    <h4>Login</h4>
+      <%= text_field_tag :username, nil, placeholder: "Username" %>
+      <%= password_field_tag :password,nil, placeholder: "Password" %>
+      <br>
+      <%= submit_tag "Log In", class: 'button' %>
+    <% end %>
+  </div>
+</div>
